@@ -3,6 +3,10 @@ class PlacesController < ApplicationController
     @places = Place.all
   end
 
+  def placespages
+    @places = Place.page(params[:page]).order('created_at DESC')
+  end
+
   def new
     @place = Place.new
   end
