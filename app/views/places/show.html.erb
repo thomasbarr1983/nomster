@@ -60,6 +60,12 @@
   <%= f.submit "Add a Comment", class: 'btn btn-primary' %>
 <% end %>
 
+<%= simple_form_for @photo, url: '#' do |f| %>
+
+  <%= f.input :caption %>
+  <%= f.submit "Add a Photo", class: 'btn btn-primary' %>
+<% end %>
+
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
   Add a comment
