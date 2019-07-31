@@ -1,6 +1,5 @@
-class Photo < ApplicationRecord
+class Photo < ActiveRecord::Base
+  mount_uploader :picture, PictureUploader
   belongs_to :place
-
-  validates :caption
-
+  belongs_to :user
 end

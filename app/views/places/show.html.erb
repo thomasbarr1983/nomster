@@ -60,8 +60,8 @@
   <%= f.submit "Add a Comment", class: 'btn btn-primary' %>
 <% end %>
 
-<%= simple_form_for @photo, url: '#' do |f| %>
-
+<%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
+  <%= f.input :picture %>
   <%= f.input :caption %>
   <%= f.submit "Add a Photo", class: 'btn btn-primary' %>
 <% end %>
@@ -70,6 +70,16 @@
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
   Add a comment
 </button>
+
+
+<% @place.photos.each do |photo| %>
+  <% if photo.picture.present? %>
+  <p><%= image_tag photo.picture.url %></p>
+  <p><%= photo.caption %></p>
+  <% end %>  
+  
+  
+<% end %>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
